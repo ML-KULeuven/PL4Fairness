@@ -1,0 +1,44 @@
+project: fairness-demand-assumption-sweep
+name: historical_label_sweep
+device: cpu
+device_nb: 0
+
+# training
+seed: [0,1,2,3,4,5,6,7,8,9]
+save: True
+batch_size: 64
+lr: 3e-4
+patience: 50
+stop_metric: "val/loss"
+eval_metric: "AP"
+verbose: True
+epochs: 50
+loss: bce
+use_pos_weight: False
+validation_stopping: True
+tune: False
+hidden_features: 32
+nb_hidden_layers: 2
+dropout: 0
+drop_sensitive: False
+as_label: True
+
+# paths
+program_path: "experiments/bias_on_demand/programs/label.pl"
+dataset_cfg_path: "experiments/bias_on_demand/assumption_sweep/configs/dataset_configs/data_historical.yaml"
+
+# biased classifier
+flip_features: True
+rates: [[0, 0],
+        [0, 0.1],
+        [0, 0.2],
+        [0, 0.3],
+        [0, 0.4],
+        [0, 0.5],
+        [0, 0.6],
+        [0, 0.7],
+        [0, 0.8],
+        [0, 0.9],
+        [0, 1]]
+names: [["noise",1], ["label_bias",1]]
+sensitive_index: 0

@@ -1,0 +1,15 @@
+aif360==0.6.1
+pydeeplog==3.0.5
+error_parity==0.3.11
+numpy==2.4.6
+pandas==3.0.1
+Pillow==12.1.1
+plotnine==0.14.5
+pytorch_lightning==2.5.0.post0
+PyYAML==6.0.3
+scikit_learn==1.8.0
+seaborn==0.13.2
+torch==2.5.1
+torchmetrics==1.6.2
+torchvision==0.20.1
+gdown

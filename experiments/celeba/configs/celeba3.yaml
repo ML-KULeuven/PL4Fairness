@@ -1,0 +1,37 @@
+project: fairness-celeba
+name: celeba3
+device: cuda
+device_nb: 0
+
+# training
+seed: [0,1,2,3,4,5,6,7,8,9]
+batch_size: 16
+lr: 1e-4
+verbose: True
+epochs: 10
+patience: 10
+stop_metric: "val/loss"
+eval_metric: "AP"
+loss: bce
+use_pos_weight: False
+validation_stopping: True
+tune: False
+as_label: True
+drop_sensitive: False # inactive with pretrained nn
+n_q: 3
+protected_attr: "High_Cheekbones"
+to_keep: ["Blurry", "Smiling"]
+save: True
+
+# paths
+program_path: "experiments/celeba/programs/celeba3.pl"
+
+# biased classifier
+flip_features: False
+rates: [0.0172, 0.00766, 0.00976] # noise parameters
+names: [["noise_a1", 1], ["noise_a2", 1], ["noise_a3", 1],
+        ["tpr_not_a1",1], ["tpr_a1",1], ["fpr_not_a1",1], ["fpr_a1",1],
+        ["tpr_not_a2",1], ["tpr_a2",1], ["fpr_not_a2",1], ["fpr_a2",1],
+        ["tpr_not_a3",1], ["tpr_a3",1], ["fpr_not_a3",1], ["fpr_a3",1],
+]
+sensitive_index: 0

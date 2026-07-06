@@ -1,0 +1,37 @@
+project: fairness-demand-bias-sweep
+name: historical_indep_a_feature
+device: cpu
+device_nb: 0
+
+# training
+seed: [0,1,2,3,4,5,6,7,8,9]
+save: True
+batch_size: 64
+lr: 3e-4
+patience: 50
+stop_metric: "val/loss"
+eval_metric: "AP"
+verbose: True
+epochs: 50
+loss: bce
+use_pos_weight: False
+validation_stopping: True
+tune: False
+hidden_features: 32
+nb_hidden_layers: 2
+dropout: 0
+drop_sensitive: True
+as_label: False
+
+# paths
+program_path: "experiments/bias_on_demand/programs/measurement.pl"
+dataset_cfg_path: "experiments/bias_on_demand/bias_sweep/configs/dataset_configs/data_historical_indep_a.yaml"
+
+# biased classifier
+flip_features: True
+rates: [[]] # TBD
+names: [['ppv_not_a',1], ['ppv_a',1], ['npv_not_a', 1], ['npv_a',1],
+        ['ppv_not_a',2], ['ppv_a',2], ['npv_not_a', 2], ['npv_a',2],
+        ['ppv_not_a',3], ['ppv_a',3], ['npv_not_a', 3], ['npv_a',3],
+        ['ppv_not_a',4], ['ppv_a',4], ['npv_not_a', 4], ['npv_a',4]]
+sensitive_index: 0
