@@ -1,6 +1,5 @@
 # general
 dim: 10000
-splits: !!python/tuple [0.8, 0.1, 0.1]
 dataset_path: "experiments/bias_on_demand/bias_sweep/datasets/historical"
 
 # distribution parameters

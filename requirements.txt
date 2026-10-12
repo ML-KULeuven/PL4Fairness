@@ -4,12 +4,13 @@ error_parity==0.3.11
 numpy==2.4.6
 pandas==3.0.1
 Pillow==12.1.1
-plotnine==0.14.5
 pytorch_lightning==2.5.0.post0
 PyYAML==6.0.3
 scikit_learn==1.8.0
 seaborn==0.13.2
-torch==2.5.1
+torch==2.6.0
 torchmetrics==1.6.2
-torchvision==0.20.1
+torchvision==0.21.0
 gdown
+ecos==2.0.14
+matplotlib==3.11.2

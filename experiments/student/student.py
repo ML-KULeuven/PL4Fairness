@@ -31,7 +31,7 @@ def run(cfg_path):
 			 #'no_pos_flips_not_a',  # fpr_not_a = 0
 			 #'no_pos_flips_a',  # fpr_a = 0
 			 #'no_bias_not_a', # tpr_not_a = 1, fpr_not_a = 0
-			 'no_bias_not_a', # tpr_a = 1, fpr_a = 0
+			 'no_bias_not_a', # tpr_not_a = 1, fpr_not_a = 0
 			 'no_pos_flips',  # fpr_not_a = 0, fpr_a = 0
 			 ]
 

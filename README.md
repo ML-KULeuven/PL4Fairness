@@ -31,11 +31,27 @@ experiments/
   student/           # Student dataset experiments
 res/data/            # Directory for dataset files
 src/                 # Core method implementation
+demo.ipynb           # Notebook with demo for label bias
 ```
+
+## Running the Demo Notebook
+
+`demo.ipynb` shows how to use ProbLog4Fairness in practice. On the student dataset, it wraps an ordinary
+PyTorch classifier in a `LabelBiasModule`, trains it on biased labels, and compares the result with a
+classifier trained directly on the biased labels and one trained on the fair labels.
+
+After completing the steps under Installation, make sure Jupyter is installed.
+Then from the repository root, open the notebook and run the cells:
+```bash
+jupyter lab demo.ipynb
+```
+
+The notebook uses `LabelBiasModule`, which can be found in `src/fairness_module.py` together with `MeasurementBiasModule` and `HistoricalBiasModule`.
+These modules are the easiest way to get started with ProbLog4Fairness.
 
 ## Running Experiments
 
-Experiments are run via `run_experiments.py`, which accepts an experiment name and an optional path to a YAML config file:
+Experiments are run via `run_experiments.py`, which accepts an experiment name and a path to a YAML config file:
 
 ```bash
 python run_experiments.py <experiment_name> <config_path>

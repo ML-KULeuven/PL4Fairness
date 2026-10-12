@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import Union
 
 import PIL
 import numpy as np
@@ -39,7 +40,10 @@ class ImageSensitiveDataset(Dataset):
 		return a, X, label
 
 class TabularDataset(Dataset):
-	def __init__(self, X: torch.Tensor, y: torch.Tensor, sensitive_idx: int, feature_names=None):
+	def __init__(self, X: Union[torch.Tensor, np.ndarray], y: Union[torch.Tensor, np.ndarray],
+				 sensitive_idx: int, feature_names=None):
+		X = torch.as_tensor(X, dtype=torch.float32)
+		y = torch.as_tensor(y, dtype=torch.int32)
 		a = X[:, sensitive_idx].to(torch.int32)
 		self.feature_names = feature_names
 		self.sensitive_idx = sensitive_idx
